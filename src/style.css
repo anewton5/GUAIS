@@ -30,3 +30,58 @@ section{
   line-height: 1.5;
   background: rgba(0, 0, 0, 0.774);
 }
+
+blockquote {
+  background: none;
+  grid-column: 2/8;
+  padding: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+#torusText{
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure it is above other content */
+  padding: 50px;
+  background: rgba(71, 31, 135, 0.722);
+  color: white;
+  font-size: 2rem;
+  opacity: 0;
+}
+
+main > section, main > blockquote {
+  margin-top: 50px; /* Add top margin to all sections and blockquotes */
+  margin-bottom: 50px; /* Add bottom margin to all sections and blockquotes */
+}
+
+#scene-start {
+  height: 300vh; /* Make it the same height as the viewport */
+  width: 100%;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 1001; /* Higher than other elements */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav li {
+  display: inline;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}

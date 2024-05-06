@@ -5,22 +5,61 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <style>
+      nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 1rem;
+        z-index: 1001; /* Higher than other elements */
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav li {
+        display: inline;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+      }
+
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+    </style>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
     <div id="app"><canvas id="bg"></canvas></div>
-    
+
     <main>
       <header>
         <h1>GUAIS</h1>
         <p>Welcome to Glasgow University AI Society</p>
       </header>
 
-      <blockquote>
-        <p>This is our Society's digital portfolio</p>
-      </blockquote>
+      <div id="scene-start"></div>
+      <div id="torusText">
+        Approaching the torus...
+      </div>
 
-      <section>
-        <h2>Manifesto</h2>
+      <section id="about">
+        <h2>About</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
@@ -31,8 +70,8 @@
         <p>This is our Society's digital portfolio</p>
       </blockquote>
 
-      <section class="left">
-        <h2>Manifesto</h2>
+      <section id="events" class="left">
+        <h2>Events</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
@@ -42,19 +81,14 @@
       <blockquote>
         <p>This is our Society's digital portfolio</p>
       </blockquote>
-      <section class="left">
-        <h2>Manifesto</h2>
+      <section id="projects">
+        <h2>Projects</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
       </section>
-
-      <blockquote>
-        <p>This is our Society's digital portfolio</p>
-      </blockquote>
-
-    <main>
+    </main>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

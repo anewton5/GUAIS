@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.2.0"
+    "vite": "^5.2.11"
   },
   "dependencies": {
+    "scrollmagic": "^2.0.8",
     "three": "^0.164.1"
   }
 }
