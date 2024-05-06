@@ -12,7 +12,7 @@ const renederer = new THREE.WebGLRenderer({
 
 renederer.setPixelRatio(window.devicePixelRatio);
 renederer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+camera.position.setZ(150);
 
 renederer.render(scene, camera);
 
@@ -36,13 +36,25 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
 
 scene.add(pointLight, pointLight2, pointLight3, pointLight4, ambientLight);
 
-const lightHelper = new THREE.PointLightHelper(pointLight)
-const lightHelper2 = new THREE.PointLightHelper(pointLight2)
-const lightHelper3 = new THREE.PointLightHelper(pointLight4)
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper, lightHelper2, lightHelper3);
+//const lightHelper = new THREE.PointLightHelper(pointLight)
+//const lightHelper2 = new THREE.PointLightHelper(pointLight2)
+//const lightHelper3 = new THREE.PointLightHelper(pointLight4)
+//const gridHelper = new THREE.GridHelper(200, 50);
+//scene.add(lightHelper, gridHelper, lightHelper2, lightHelper3);
 
 const controls = new OrbitControls(camera, renederer.domElement);
+
+function moveCamera(){
+  const t = document.body.getBoundingClientRect().top;
+  brain.rotation.x += 0.05;
+  brain.rotation.y += 0.075;
+  brain.rotation.z += 0.05;
+  camera.position.z = 150- t * -0.1;
+  camera.position.x = t * -0.00002;
+  camera.position.y = t * -0.0002;
+}
+
+document.body.onscroll = moveCamera;
 
 function animate(){
   requestAnimationFrame(animate);
@@ -65,5 +77,19 @@ Array(200).fill().forEach(addStar)
 
 const spaceTexture =  new THREE.TextureLoader().load('static/images/img-5.jpg')
 scene.background = spaceTexture;
+
+const brainTexture = new THREE.TextureLoader().load('static/images/img-6.jpg');
+const normalTexture = new THREE.TextureLoader().load('static/images/img-1.jpg');
+
+const brain = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({ 
+    map: brainTexture,
+    normalMap: normalTexture
+   })
+);
+scene.add(brain);
+brain.position.z = 60;
+brain.position.setX(-10);
 
 animate();
