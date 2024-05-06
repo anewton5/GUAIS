@@ -15,14 +15,13 @@ const renederer = new THREE.WebGLRenderer({
 
 renederer.setPixelRatio(window.devicePixelRatio);
 renederer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(100);
+camera.position.setZ(110);
 
 renederer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: 0xFF69B4});
 const torus = new THREE.Mesh(geometry, material);
-
 scene.add(torus)
 
 function updateTextPosition() {
@@ -42,10 +41,10 @@ function updateTextPosition() {
   torusText.style.left = `${x}px`;
   torusText.style.top = `${y}px`;
   torusText.style.transform = `translate(-50%, -50%) scale(${scale})`;
-// Enhance sticky effect by snapping camera focus when close
-if (distance < 50) { // Adjust this value based on desired sensitivity
+  // Enhance sticky effect by snapping camera focus when close
+  if (distance < 50) { // Adjust this value based on desired sensitivity
     camera.lookAt(torus.position);
-}
+  }
 }
 
 const pointLight = new THREE.PointLight(0xffffff, 8.0)
@@ -72,35 +71,39 @@ const controls = new OrbitControls(camera, renederer.domElement);
 
 function calculateOpacityZoomIn(scrollPosition, totalHeight) {
   const distanceFromTop = scrollPosition;
-  return Math.sqrt((distanceFromTop / totalHeight),2) * 0.9;
+  return Math.sqrt((distanceFromTop / totalHeight),3.75) * 3.75;
 }
 
 function calculateOpacityZoomOut(scrollPosition, totalHeight) {
   const distanceFromBottom = totalHeight - scrollPosition;
-  return Math.pow((distanceFromBottom / totalHeight), 3.75) * 0.9;
+  return Math.pow((distanceFromBottom / totalHeight), 3.75) * 3.75;
 }
 
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
-  brain.rotation.x += 0.05;
-  brain.rotation.y += 0.075;
-  brain.rotation.z += 0.05;
+  brain.rotation.x += 0.025;
+  brain.rotation.y += 0.035;
+  brain.rotation.z += 0.025;
   const newZ = 100 - Math.abs(t) * 0.1;
   camera.position.z = newZ > 100 ? 100 : (newZ < 10 ? 10 : newZ);
-  camera.position.x = t *  -0.02002;
-  camera.position.y = t * -0.0002;
+  camera.position.x = t * -0.0200 
+  camera.position.y = t * -0.0002
 
   const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
   const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   let opacity;
-  if (scrollPosition < totalHeight * 0.3) {
+  if (scrollPosition < totalHeight * 0.2) {
     opacity = calculateOpacityZoomIn(scrollPosition, totalHeight);
   } else {
     opacity = calculateOpacityZoomOut(scrollPosition, totalHeight);
   }
+  
+  // Assuming torusText and torusTextBackground are HTML elements
   torusText.style.opacity = opacity;
-  torusTextBackground.style.opacity = opacity;
 }
+
+document.body.onscroll = moveCamera;
+
 
 document.body.onscroll = moveCamera;
 
@@ -138,7 +141,8 @@ const brain = new THREE.Mesh(
    })
 );
 scene.add(brain);
-brain.position.z = 60;
+brain.position.z = 67.5;
+brain.position.y = -10;
 brain.position.setX(-10);
 
 animate();

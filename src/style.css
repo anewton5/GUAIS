@@ -3,7 +3,6 @@ canvas{
   top: 0;
   left: 0;
 }
-
 main{
   width: 100vw;
   color: white;
@@ -46,7 +45,6 @@ blockquote {
   transform: translate(-50%, -50%);
   z-index: 1000; /* Ensure it is above other content */
   padding: 50px;
-  background: rgba(71, 31, 135, 0.722);
   color: white;
   font-size: 2rem;
   opacity: 0;
@@ -64,16 +62,17 @@ main > section, main > blockquote {
 
 nav {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 25px;
+  right: 25px;
   padding: 1rem;
   z-index: 1001; /* Higher than other elements */
+  font-family:verdana ;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 50px;
 }
 
 nav li {
@@ -83,5 +82,24 @@ nav li {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.75rem;
+  transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+nav a:hover {
+  color: #5a089c;
+}
+
+#logo {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 2;
+  padding: 1rem;
+  margin: 8px;
+}
+
+#logo img {
+  height: 50px;
+  width: 50px;
 }
