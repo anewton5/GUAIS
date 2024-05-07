@@ -76,7 +76,7 @@ function calculateOpacityZoomIn(scrollPosition, totalHeight) {
 
 function calculateOpacityZoomOut(scrollPosition, totalHeight) {
   const distanceFromBottom = totalHeight - scrollPosition;
-  return Math.pow((distanceFromBottom / totalHeight), 3.75) * 3.75;
+  return Math.pow((distanceFromBottom / totalHeight), 5) * 3.75;
 }
 
 function moveCamera(){
@@ -92,7 +92,7 @@ function moveCamera(){
   const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
   const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   let opacity;
-  if (scrollPosition < totalHeight * 0.2) {
+  if (scrollPosition < totalHeight * 0.18) {
     opacity = calculateOpacityZoomIn(scrollPosition, totalHeight);
   } else {
     opacity = calculateOpacityZoomOut(scrollPosition, totalHeight);
