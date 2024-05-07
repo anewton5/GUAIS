@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('static/font/Montserrat.ttf'); 
+}
 canvas{
   position: fixed;
   top: 0;
@@ -19,7 +23,8 @@ main{
 header{
   grid-column: 2 / span 5;
   font-size: 2.5rem;
-  padding: 2rem;
+  padding: 3rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 section{
@@ -63,10 +68,10 @@ main > section, main > blockquote {
 nav {
   position: fixed;
   top: 25px;
-  right: 25px;
+  right: 50px;
   padding: 1rem;
   z-index: 1001; /* Higher than other elements */
-  font-family:verdana ;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav ul {
@@ -82,7 +87,9 @@ nav li {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: 600;
+  cursor: pointer;
   transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -94,12 +101,18 @@ nav a:hover {
   position: fixed;
   top: 25px;
   left: 25px;
-  z-index: 2;
+  z-index: 999;
   padding: 1rem;
   margin: 8px;
+  cursor: pointer;
 }
 
 #logo img {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 65px;
+}
+#logo a {
+  position: relative;
+  display: block;
+  cursor: pointer;
 }
