@@ -51,8 +51,10 @@ blockquote {
   z-index: 1000; /* Ensure it is above other content */
   padding: 50px;
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 500;
   opacity: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 main > section, main > blockquote {

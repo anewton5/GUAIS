@@ -20,7 +20,7 @@ camera.position.setZ(110);
 renederer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0xFF69B4});
+const material = new THREE.MeshStandardMaterial({ color: 0x5a089c});
 const torus = new THREE.Mesh(geometry, material);
 scene.add(torus)
 
@@ -47,19 +47,20 @@ function updateTextPosition() {
   }
 }
 
-const pointLight = new THREE.PointLight(0xffffff, 8.0)
-pointLight.position.set(8,8,6 )
-const pointLight2 = new THREE.PointLight(0xffffff, 8.0)
-pointLight2.position.set(-8,-10,6 )
-const pointLight3 = new THREE.PointLight(0xffffff, 8.0)
-pointLight3.position.set(1,1,1 )
-const pointLight4 = new THREE.PointLight(0xffffff, 8.0)
-pointLight4.position.set(8,-3,10 )
+const pointLight = new THREE.PointLight(0xffffff, 200.0);
+pointLight.position.set(9,12,6);
+pointLight.distance = 200;
+const pointLight2 = new THREE.PointLight(0xffffff, 35.0);
+pointLight2.position.set(-8,-10,6);
+pointLight2.distance = 100;
+const pointLight3 = new THREE.PointLight(0xffffff, 50.0);
+pointLight3.position.set(1,1,5);
+pointLight3.distance = 100;
 
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
 
-scene.add(pointLight, pointLight2, pointLight3, pointLight4, ambientLight);
+scene.add(pointLight, pointLight2, pointLight3, ambientLight);
 
 //const lightHelper = new THREE.PointLightHelper(pointLight)
 //const lightHelper2 = new THREE.PointLightHelper(pointLight2)
