@@ -131,6 +131,7 @@
           navbar.style.backgroundColor = 'transparent';
         }
       });
+      var scrollHeight = 0
       window.addEventListener('scroll', function() {
         var contentDivs = document.querySelectorAll('#content');
         var placeholder = document.getElementById('placeholder');
@@ -145,14 +146,13 @@
             placeholder.style.height = `${contentDiv.offsetHeight + paddingTop + paddingBottom}px`;
           });
           observer.observe(contentDiv);
-          var scrollHeight = 0
+          
           if (rect.top <= 51 && !contentDiv.classList.contains('fixed')) {
             contentDiv.classList.add('fixed');
             placeholder.classList.add('placeholder');
             contentDiv.style.paddingBottom = `125px`;
             scrollHeight = window.scrollY 
-            console.log(scrollHeight)
-          } else if (window.scrollY < 4670 && contentDiv.classList.contains('fixed')) {
+          } else if (window.scrollY < scrollHeight && contentDiv.classList.contains('fixed')) {
             contentDiv.classList.remove('fixed');
             placeholder.classList.remove('placeholder');
             contentDiv.style.paddingBottom = '0';
