@@ -56,11 +56,13 @@ pointLight2.distance = 100;
 const pointLight3 = new THREE.PointLight(0xffffff, 50.0);
 pointLight3.position.set(1,1,5);
 pointLight3.distance = 100;
-
+const pointLight4 = new THREE.PointLight(0xffffff, 25.0);
+pointLight4.position.set(-10,-10,67.5);
+pointLight4.distance = 25;
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
 
-scene.add(pointLight, pointLight2, pointLight3, ambientLight);
+scene.add(pointLight, pointLight2, pointLight3, pointLight4, ambientLight);
 
 //const lightHelper = new THREE.PointLightHelper(pointLight)
 //const lightHelper2 = new THREE.PointLightHelper(pointLight2)
