@@ -34,6 +34,30 @@ section{
   line-height: 1.5;
   background: rgba(0, 0, 0, 0.774);
 }
+#events {
+  grid-column: 2/8;
+  padding: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  background: rgba(199, 187, 230, 0.774);
+}
+#content{
+  grid-column: 1/-1;
+  background-color: #5a089c;
+  color: white;
+  padding: 2rem 4rem;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#cta{
+  grid-column: 1/-1;
+  background-color: white;
+  color: #5a089c;
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
 
 blockquote {
   background: none;
@@ -69,17 +93,24 @@ main > section, main > blockquote {
 
 nav {
   position: fixed;
-  top: 25px;
-  right: 50px;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  top: 0;
+  right: 0;
+  width:100%;
   z-index: 1001; /* Higher than other elements */
   font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
+  z-index: 1000;
+  grid-column: 1 / -1;
+  transition: background-color 0.5s ease;
 }
 
 nav ul {
   list-style: none;
   display: flex;
+  justify-content: flex-end;
   gap: 50px;
+  padding: 0 2rem;
 }
 
 nav li {
@@ -101,7 +132,7 @@ nav a:hover {
 
 #logo {
   position: fixed;
-  top: 25px;
+  top: 15px;
   left: 25px;
   z-index: 999;
   padding: 1rem;

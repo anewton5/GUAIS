@@ -15,12 +15,17 @@
         <img src="static/images/logo-no-background.png" alt="Logo">
       </a>
     </div>
-    <nav>
+    <nav id="navbar">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#projects">Projects</a></li>
       </ul>
+      <div id="logo">
+        <a href="#">
+          <img src="static/images/logo-no-background.png" alt="Logo">
+        </a>
+      </div>
     </nav>
     <div id="app"><canvas id="bg"></canvas></div>
 
@@ -40,7 +45,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus </p>
       </section>
 
       <blockquote>
@@ -65,7 +70,44 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
       </section>
+
+      <blockquote>
+        <p>This is our Society's digital portfolio</p>
+      </blockquote>
+      <div id="divider"></div>
+      <div id="content">
+        <h2>Footer</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+      </div>
+      <div id="cta">
+        <h2>Footer</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+      </div>
+
     </main>
+    <script>
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('#navbar');
+        const content = document.querySelector('#divider');
+        const contentPosition = content.getBoundingClientRect().bottom;
+      
+        if (contentPosition <= 105) {
+          navbar.style.backgroundColor = '#5a089c';
+          
+        } else {
+          navbar.style.backgroundColor = 'transparent';
+        }
+      });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script type="module" src="/main.js"></script>
     <script>
