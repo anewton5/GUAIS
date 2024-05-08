@@ -30,6 +30,7 @@ header{
   font-size: 2.5rem;
   padding: 3rem;
   font-family: 'Montserrat', sans-serif;
+  margin-top: 5rem;
 }
 
 section{
@@ -46,6 +47,7 @@ section{
   line-height: 1.5;
   background: rgba(199, 187, 230, 0.774);
 }
+#content1,
 #content{
   grid-column: 1/-1;
   background-color: #9769EF;
@@ -53,8 +55,10 @@ section{
   padding: 2rem 4rem;
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
+  z-index: 900;
 }
 
+#cta1,
 #cta{
   grid-column: 1/-1;
   background-color: white;
@@ -62,6 +66,7 @@ section{
   padding: 2rem;
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
+  z-index: 901;
 }
 
 blockquote {
@@ -102,7 +107,7 @@ nav {
   top: 0;
   right: 0;
   width:100%;
-  z-index: 1001; /* Higher than other elements */
+  z-index: 1001; 
   font-family: 'Montserrat', sans-serif;
   background-color: transparent;
   z-index: 1000;
@@ -128,11 +133,12 @@ nav a {
   font-size: 2rem;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), font-size 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 nav a:hover {
   color: #5a089c;
+  font-size: 2.075rem;
 }
 
 #logo {
@@ -153,4 +159,12 @@ nav a:hover {
   position: relative;
   display: block;
   cursor: pointer;
+}
+.fixed {
+  position: fixed;
+  top: 51px;
+  width: 100%;
+}
+.placeholder {
+  visibility: hidden;
 }
