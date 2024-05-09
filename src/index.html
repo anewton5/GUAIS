@@ -15,7 +15,7 @@
       <svg class="spinner" width="120" height="120" viewBox="0 0 120 120">
         <circle class="path" fill="none" stroke-width="16" stroke-miterlimit="10" cx="60" cy="60" r="48"></circle>
       </svg>
-      <button id="enter-button" disabled>Enter</button>
+      <button id="enter-button" disabled>Enter Website</button>
     </div>
     <div id="logo">
       <a href="#">
@@ -216,17 +216,24 @@
         const enterButton = document.getElementById('enter-button');
         const loadingText = document.getElementById('loading-text');
         const body = document.body;
-
+      
         body.style.overflow = 'hidden';
-
+      
         setTimeout(function() {
           enterButton.disabled = false;
           loadingText.classList.add('load-complete');
+          if (loadingText) {
+            loadingText.outerHTML = '<h2>Welcome to GUAIS Website!</h2>';
+          }
         }, 3500);
-
+      
         enterButton.addEventListener('click', function() {
-          loadingScreen.style.display = 'none';
-          body.style.overflow = 'auto';
+          loadingScreen.style.opacity = '0';
+          setTimeout(function() {
+            loadingScreen.style.display = 'none';
+            body.style.overflow = 'auto';
+          }, 1000);
+          
         });
       });
     </script>
