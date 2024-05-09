@@ -244,7 +244,7 @@ nav a:hover {
 }
 .fixed {
   position: fixed;
-  top: 51.5px;
+  top: 53.5px;
   width: 1/-1;
 }
 .placeholder {
@@ -256,7 +256,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #e7e0f4e6;
+  background-color: #cec8daee;
   display: flex;
   flex-direction: column;
   justify-content: center;
