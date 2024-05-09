@@ -215,14 +215,18 @@
         const loadingScreen = document.getElementById('loading-screen');
         const enterButton = document.getElementById('enter-button');
         const loadingText = document.getElementById('loading-text');
+        const body = document.body;
+
+        body.style.overflow = 'hidden';
 
         setTimeout(function() {
           enterButton.disabled = false;
-          loadingText.classList.add('load-complete'); // Add the 'load-complete' class to the loading text
+          loadingText.classList.add('load-complete');
         }, 3500);
 
         enterButton.addEventListener('click', function() {
           loadingScreen.style.display = 'none';
+          body.style.overflow = 'auto';
         });
       });
     </script>
