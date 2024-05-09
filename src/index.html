@@ -30,7 +30,7 @@
     <div id="app"><canvas id="bg"></canvas></div>
 
     <main>
-      <header>
+      <header class="hero">
         <h1>GUAIS</h1>
         <p>Welcome to Glasgow University AI Society!</p>
       </header>
@@ -77,8 +77,6 @@
       <div id="content">
         <h2>Content</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
@@ -86,34 +84,63 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
       </div>
       <div id="placeholder"></div>
       <div id="cta">
         <h2>CTA</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
-      </div>
-      <div id="content1">
-        <h2>Content</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
       </div>
-      <div id="cta1">
-        <h2>CTA</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+      <div id="content1">
+        <h2>Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
+      </div>
+
+      <div id="footer">
+        <h3>GUAIS</h3>
+        <div class="footer-links">
+          <ul>
+            <h4><a href="#">Home</a></h4>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#projects">Projects</a></li>
+            
+          </ul>
+          <ul>
+            <h4>Content</h4>
+            <li><a href="#content">Content</a></li>
+            <li><a href="#cta">CTA</a></li>
+            <li><a href="#content1">Content1</a></li>
+          </ul>
+          <ul>
+            <h4>Resources</h4>
+            <li>
+            <li> <a href="#">Blog</a></li>
+            <li> <a href="#">Contact</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <ul>
+            <h4>Legal</h4>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
       </div>
 
     </main>
@@ -135,23 +162,25 @@
       window.addEventListener('scroll', function() {
         var contentDivs = document.querySelectorAll('#content');
         var placeholder = document.getElementById('placeholder');
+        var footer = document.getElementById('footer');
 
         contentDivs.forEach(function(contentDiv, index) {
           var rect = contentDiv.getBoundingClientRect();
+          var footerRect = footer.getBoundingClientRect();
           var observer = new ResizeObserver(function() {
             var computedStyle = window.getComputedStyle(contentDiv);
             var paddingTop = parseInt(computedStyle.paddingTop);
             var paddingBottom = parseInt(computedStyle.paddingBottom);
-      
+
             placeholder.style.height = `${contentDiv.offsetHeight + paddingTop + paddingBottom}px`;
           });
           observer.observe(contentDiv);
           
-          if (rect.top <= 51 && !contentDiv.classList.contains('fixed')) {
+          if (rect.top <= 55 && !contentDiv.classList.contains('fixed')) {
             contentDiv.classList.add('fixed');
             placeholder.classList.add('placeholder');
-            contentDiv.style.paddingBottom = `125px`;
-            scrollHeight = window.scrollY 
+            contentDiv.style.paddingBottom = `90px`;
+            scrollHeight = window.scrollY
           } else if (window.scrollY < scrollHeight && contentDiv.classList.contains('fixed')) {
             contentDiv.classList.remove('fixed');
             placeholder.classList.remove('placeholder');
