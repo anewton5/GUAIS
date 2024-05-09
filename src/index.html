@@ -10,6 +10,13 @@
     </style>
   </head>
   <body>
+    <div id="loading-screen">
+      <p id="loading-text">Loading...</p>
+      <svg class="spinner" width="120" height="120" viewBox="0 0 120 120">
+        <circle class="path" fill="none" stroke-width="16" stroke-miterlimit="10" cx="60" cy="60" r="48"></circle>
+      </svg>
+      <button id="enter-button" disabled>Enter</button>
+    </div>
     <div id="logo">
       <a href="#">
         <img src="static/images/logo-no-background.png" alt="Logo">
@@ -202,6 +209,20 @@
             top: targetPosition,
             behavior: 'smooth'
           });
+        });
+      });
+      window.addEventListener('load', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const enterButton = document.getElementById('enter-button');
+        const loadingText = document.getElementById('loading-text');
+
+        setTimeout(function() {
+          enterButton.disabled = false;
+          loadingText.classList.add('load-complete'); // Add the 'load-complete' class to the loading text
+        }, 3500);
+
+        enterButton.addEventListener('click', function() {
+          loadingScreen.style.display = 'none';
         });
       });
     </script>
