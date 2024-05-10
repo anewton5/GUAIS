@@ -215,6 +215,7 @@
         const loadingScreen = document.getElementById('loading-screen');
         const enterButton = document.getElementById('enter-button');
         const loadingText = document.getElementById('loading-text');
+        const spinner = document.querySelector('.spinner');
         const body = document.body;
       
         body.style.overflow = 'hidden';
@@ -222,8 +223,8 @@
         setTimeout(function() {
           enterButton.disabled = false;
           loadingText.classList.add('load-complete');
-          if (loadingText) {
-            loadingText.outerHTML = '<h2>GUAIS</h2>';
+          if (spinner) {
+            spinner.outerHTML = '<h2>GUAIS</h2>';
           }
         }, 3500);
       
