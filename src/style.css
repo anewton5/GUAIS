@@ -253,11 +253,7 @@ nav a:hover {
 }
 .fixed {
   position: fixed;
-  top: 50.5px;
-  padding: 2rem 4rem;
-  width: 100%;
-  z-index: 890;
-  bottom: 0;
+  top: 55px;
 }
 .placeholder {
   visibility: hidden;
