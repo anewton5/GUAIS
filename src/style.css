@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Montserrat';
-  src: url('static/font/Montserrat.ttf'); 
+  src: url('static/font/Montserrat-Italic-VariableFont_wght.ttf'); 
 }
 canvas{
   position: fixed;
@@ -275,7 +275,7 @@ nav a:hover {
 .path {
   stroke-dasharray: 301.635;
   stroke-dashoffset: 301.635;
-  stroke: #cec8da;
+  stroke: #f5f0ff;
   stroke-linecap: round;
   animation: dash 3.75s ease-in-out;
 }
@@ -333,10 +333,13 @@ nav a:hover {
   height: auto;
 }
 #loading-screen h2{
-  font-size: 40px;
+  font-size: 100px;
   text-align: center;
   color: white;
   margin-bottom: 5px;
   font-style: italic;
-  font-weight: bold;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
