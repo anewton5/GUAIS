@@ -11,11 +11,33 @@
   </head>
   <body>
     <div id="loading-screen">
-      <p id="loading-text">Loading...</p>
-      <svg class="spinner" width="120" height="120" viewBox="0 0 120 120">
-        <circle class="path" fill="none" stroke-width="16" stroke-miterlimit="10" cx="60" cy="60" r="48"></circle>
-      </svg>
-      <button id="enter-button" disabled>Enter Website</button>
+      <div id="text-container">
+        <p id="loading-text">Loading...</p>
+        <svg class="spinner" width="120" height="120" viewBox="0 0 120 120">
+          <circle class="path" fill="none" stroke-width="16" stroke-miterlimit="10" cx="60" cy="60" r="48"></circle>
+        </svg>
+        <button id="enter-button" disabled>Enter Website</button>
+      </div>
+      <div class="gradient-bg">
+        
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+              <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+          </defs>
+        </svg>
+        <div class="gradients-container">
+          <div class="g1"></div>
+          <div class="g2"></div>
+          <div class="g3"></div>
+          <div class="g4"></div>
+          <div class="g5"></div>
+          <div class="interactive"></div>
+        </div>
+      </div>
     </div>
     <div id="scroll-container">
       <nav id="navbar">
@@ -146,6 +168,7 @@
 
       </main>
     </div>
+    <script type="module" src="/main.ts"></script>
     <script>
       window.addEventListener('scroll', function() {
         const navbar = document.querySelector('#navbar');
@@ -206,20 +229,22 @@
           });
         });
       });
-      window.addEventListener('load', function() {
+      window.addEventListener('beforeunload', function() {
+        window.location.reload(true);
+      });
+      document.addEventListener('DOMContentLoaded', function() {
         const loadingScreen = document.getElementById('loading-screen');
         const enterButton = document.getElementById('enter-button');
         const loadingText = document.getElementById('loading-text');
         const spinner = document.querySelector('.spinner');
         const body = document.body;
-      
+
         body.style.overflow = 'hidden';
-      
         setTimeout(function() {
           enterButton.disabled = false;
           loadingText.classList.add('load-complete');
-          spinner.style.opacity = '0';
           if (spinner) {
+            spinner.style.opacity = '0';
             spinner.outerHTML = '<h2>GUAIS</h2>'; 
           }
         }, 3500);
@@ -230,24 +255,25 @@
             loadingScreen.style.display = 'none';
             body.style.overflow = 'auto';
           }, 1000);
-          
         });
+        window.onbeforeunload = function() {
+          document.body.style.overflow = 'auto';
+        };
       });
       window.addEventListener('wheel', function(e) {
         const footer = document.querySelector('#footer');
         const footerBottom = footer.getBoundingClientRect().top + footer.offsetHeight + window.scrollY;
         const distanceToFooterBottom = footerBottom - window.scrollY - window.innerHeight;
 
-        if (e.deltaY < 0) return; // Only prevent scroll up
+        if (e.deltaY < 0) return; 
         if (distanceToFooterBottom <= 0) {
-          // If we're scrolling down and we've reached the bottom of the footer, prevent further scrolling
-          e.preventDefault(); // Prevent the default scroll behavior
-        } else if (distanceToFooterBottom < 200) { // Adjust this value to control when the slow scroll starts
-          // If we're close to the bottom of the footer, reduce the scroll speed
-          window.scrollBy(0, e.deltaY / 30); // Adjust the divisor to control the scroll speed
-          e.preventDefault(); // Prevent the default scroll behavior
+          
+          e.preventDefault(); 
+        } else if (distanceToFooterBottom < 200) { 
+          window.scrollBy(0, e.deltaY / 30); 
+          e.preventDefault();
         }
-      }, { passive: false }); // Use passive: false to allow preventDefault
+      }, { passive: false }); 
     </script>
   </body>
 </html>
