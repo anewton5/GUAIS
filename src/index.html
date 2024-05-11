@@ -19,7 +19,6 @@
         <button id="enter-button" disabled>Enter Website</button>
       </div>
       <div class="gradient-bg">
-        
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">
@@ -40,6 +39,7 @@
       </div>
     </div>
     <div id="scroll-container">
+      <div id="scrollWatcher"></div>
       <nav id="navbar">
         <ul>
           <li><a href="#about">About</a></li>
@@ -185,111 +185,10 @@
     </div>
     <script src="/darkmode.js"></script>
     <script type="module" src="/main.ts"></script>
-    <script>
-      window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('#navbar');
-        const content = document.querySelector('#divider2');
-        const contentPosition = content.getBoundingClientRect().bottom;
-        var contentDiv = document.querySelector('#content');
-      
-        if (contentPosition <= 125 || contentDiv.classList.contains('fixed')) {
-          navbar.style.backgroundColor = 'var(--clr-nav)';
-          
-        } else {
-          navbar.style.backgroundColor = 'transparent';
-        }
-      });
-      var scrollHeight = 0
-      window.addEventListener('scroll', function() {
-        var contentDivs = document.querySelectorAll('#content');
-        var placeholder = document.getElementById('placeholder');
-        var footer = document.getElementById('footer');
-
-        contentDivs.forEach(function(contentDiv, index) {
-          var rect = contentDiv.getBoundingClientRect();
-          var footerRect = footer.getBoundingClientRect();
-          var observer = new ResizeObserver(function() {
-            var computedStyle = window.getComputedStyle(contentDiv);
-            var paddingTop = parseInt(computedStyle.paddingTop);
-            var paddingBottom = parseInt(computedStyle.paddingBottom);
-
-            placeholder.style.height = `${contentDiv.offsetHeight + paddingTop + paddingBottom}px`;
-          });
-          observer.observe(contentDiv);
-          
-          if (rect.top <= 55 && !contentDiv.classList.contains('fixed')) {
-            contentDiv.classList.add('fixed');
-            placeholder.classList.add('placeholder');
-            contentDiv.style.paddingBottom = `90px`;
-            scrollHeight = window.scrollY
-          } else if (window.scrollY < scrollHeight && contentDiv.classList.contains('fixed')) {
-            contentDiv.classList.remove('fixed');
-            placeholder.classList.remove('placeholder');
-            contentDiv.style.paddingBottom = '0';
-          }
-        });
-      });
-    </script>
+    <script src="parallax.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script type="module" src="/main.js"></script>
-    <script>
-      const navLinks = document.querySelectorAll('nav ul a, #footer a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          const targetPosition = target.offsetTop - window.innerHeight / 2 + target.offsetHeight / 2;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        });
-      });
-      window.addEventListener('beforeunload', function() {
-        window.location.reload(true);
-      });
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadingScreen = document.getElementById('loading-screen');
-        const enterButton = document.getElementById('enter-button');
-        const loadingText = document.getElementById('loading-text');
-        const spinner = document.querySelector('.spinner');
-        const body = document.body;
-
-        body.style.overflow = 'hidden';
-        setTimeout(function() {
-          enterButton.disabled = false;
-          loadingText.classList.add('load-complete');
-          if (spinner) {
-            spinner.style.opacity = '0';
-            spinner.outerHTML = '<h2>GUAIS</h2>';
-          }
-        }, 3500);
-      
-        enterButton.addEventListener('click', function() {
-          loadingScreen.style.opacity = '0';
-          setTimeout(function() {
-            loadingScreen.style.display = 'none';
-            body.style.overflow = 'auto';
-          }, 1000);
-        });
-        window.onbeforeunload = function() {
-          document.body.style.overflow = 'auto';
-        };
-      });
-      window.addEventListener('wheel', function(e) {
-        const footer = document.querySelector('#footer');
-        const footerBottom = footer.getBoundingClientRect().top + footer.offsetHeight + window.scrollY;
-        const distanceToFooterBottom = footerBottom - window.scrollY - window.innerHeight;
-
-        if (e.deltaY < 0) return; 
-        if (distanceToFooterBottom <= 0) {
-          
-          e.preventDefault(); 
-        } else if (distanceToFooterBottom < 200) { 
-          window.scrollBy(0, e.deltaY / 30); 
-          e.preventDefault();
-        }
-      }, { passive: false }); 
-    </script>
+    <script type="module" src="main.js"></script>
+    <script src="smoothLinks.js"></script>
+    <script src="loadingScreen.js"></script>
   </body>
 </html>

@@ -32,6 +32,7 @@
   --clr-nav: #14022f;
   --clr-txt: #f5f0ff;
 }
+
 .darkmode-toggle {
   color: #1b042d; 
 }
@@ -39,11 +40,30 @@
 .darkmode-toggle.dark {
   color: #f5f0ff;
 }
+
 canvas{
   position: fixed;
   top: 0;
   left: 0;
 }
+
+#scrollWatcher{
+  height: 7.5px;
+  position: fixed;
+  top: 0;
+  z-index:1001 ;
+  background-color: var(--clr-light);
+  width: 100%;
+  scale: 0 1;
+  transform-origin: left;
+  animation: scrollWatcher linear;
+  animation-timeline: scroll();
+}
+
+@keyframes scrollWatcher {
+  to { scale: 1 1; }
+}
+
 body{
   margin: 0;
   padding: 0;
