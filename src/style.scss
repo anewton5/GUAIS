@@ -2,6 +2,43 @@
   font-family: 'Montserrat';
   src: url('static/font/Montserrat-Italic-VariableFont_wght.ttf'); 
 }
+:root {
+  --color-bg1: rgb(152, 105, 239);
+  --color-bg2: rgb(38, 2, 66);
+  --color1: 18, 113, 255;
+  --color2: 221, 74, 255;
+  --color3: 100, 220, 255;
+  --color4: 200, 50, 50;
+  --color5: 180, 180, 50;
+  --color-interactive: 140, 100, 255;
+  --circle-size: 80%;
+  --blending: hard-light;
+  --clr-primary: #5a089c;
+  --clr-secondary: #260242;
+  --clr-light: #f5f0ff;
+  --clr-accent: #b4a4f1;
+  --clr-bg-section: #c7bbe6c5;
+  --clr-txt: #262626;
+  --clr-nav: #9769EF;
+  --ff-txt: 'Montserrat', sans-serif;
+}
+
+.darkmode {
+  --clr-primary:  #1b042d;
+  --clr-secondary:  #14022f;
+  --clr-light: #28063b;
+  --clr-accent: #9769EF;
+  --clr-bg-section: #160e1fc5;
+  --clr-nav: #14022f;
+  --clr-txt: #f5f0ff;
+}
+.darkmode-toggle {
+  color: #1b042d; 
+}
+
+.darkmode-toggle.dark {
+  color: #f5f0ff;
+}
 canvas{
   position: fixed;
   top: 0;
@@ -23,13 +60,11 @@ body{
 #scroll-container {
   height: 100%;
   overflow-y: auto;
-  background-color: #260242;
   z-index: 30000;
 }
 
 main{
   width: 100vw;
-  color: white;
   z-index: 99;
   position: absolute;
   width: 100%;
@@ -43,6 +78,7 @@ main{
   grid-column: 2 / span 5;
   font-size: 2.5rem;
   padding: 3rem;
+  color: var(--clr-light);
   font-family: 'Montserrat', sans-serif;
   margin-top: 5rem;
   min-height: 400vh;
@@ -54,7 +90,7 @@ main{
   padding: 0.25rem 4rem;
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
-  background-color: #260242;
+  background-color: var(--clr-nav);
   color: white;
   z-index: 1000;
   display: flex;
@@ -91,7 +127,7 @@ main{
   margin-bottom: 10px;
   text-decoration: none;
   font-size: 1.25rem;
-  color: #9769EF;
+  color: var(--clr-accent);
   transition: color 0.45s
 }
 .footer-links ul h4 a:hover {
@@ -101,7 +137,7 @@ main{
   margin-top: 0;
   margin-bottom: 10px;
   text-decoration: none;
-  color: #9769EF;
+  color: var(--clr-accent);
   font-size: 1.25rem;
 }
 
@@ -114,26 +150,26 @@ main{
   transition: color 0.45s
 }
 .footer-links ul li a:hover {
-  color: #9769EF;
+  color: var(--clr-accent);
 }
 section{
   grid-column: 2/8;
   padding: 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
-  background: rgba(0, 0, 0, 0.774);
+  background: var(--clr-bg-section);
 }
 #events {
   grid-column: 2/8;
   padding: 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
-  background: rgba(199, 187, 230, 0.774);
+  background: var(--clr-bg-section);
 }
 
 #content1{
   grid-column: 1/-1;
-  background-color: #5a089c;
+  background-color: var(--clr-primary);
   color: white;
   padding: 2rem 4rem;
   font-size: 1.5rem;
@@ -143,7 +179,7 @@ section{
 }
 #content{
   grid-column: 1/-1;
-  background-color: #5a089c;
+  background-color: var(--clr-primary);
   color: white;
   padding: 2rem 4rem;
   font-size: 1.5rem;
@@ -153,8 +189,8 @@ section{
 
 #cta{
   grid-column: 1/-1;
-  background-color: white;
-  color: #5a089c;
+  background-color: var(--clr-light);
+  color: var(--clr-txt);
   padding: 2rem 4rem;
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
@@ -377,17 +413,13 @@ nav a:hover {
   justify-content: center;
   margin-top: 0;
 }
-:root {
-  --color-bg1: rgb(108, 0, 162);
-  --color-bg2: rgb(0, 17, 82);
-  --color1: 18, 113, 255;
-  --color2: 221, 74, 255;
-  --color3: 100, 220, 255;
-  --color4: 200, 50, 50;
-  --color5: 180, 180, 50;
-  --color-interactive: 140, 100, 255;
-  --circle-size: 80%;
-  --blending: hard-light;
+
+
+.darkmode-toggle {
+  background: none;
+  border: none;
+  color: var(--clr-secondary);
+  cursor: pointer;
 }
 
 @keyframes moveInCircle {
