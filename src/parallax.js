@@ -41,3 +41,15 @@ window.addEventListener('scroll', function() {
         }
     });
 });
+window.addEventListener('scroll', function(e) {
+    lastKnownScrollPosition = window.scrollY;
+
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            handleScroll(lastKnownScrollPosition);
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+});
