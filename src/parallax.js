@@ -32,12 +32,11 @@ window.addEventListener('scroll', function() {
         if (rect.top <= 55 && !contentDiv.classList.contains('fixed')) {
         contentDiv.classList.add('fixed');
         placeholder.classList.add('placeholder');
-        contentDiv.style.paddingBottom = `90px`;
+        contentDiv.style.paddingBottom = `150px`;
         scrollHeight = window.scrollY
         } else if (window.scrollY < scrollHeight && contentDiv.classList.contains('fixed')) {
         contentDiv.classList.remove('fixed');
         placeholder.classList.remove('placeholder');
-        contentDiv.style.paddingBottom = '0';
         }
     });
 });
