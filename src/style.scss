@@ -199,6 +199,7 @@ section{
 }
 #content{
   grid-column: 1/-1;
+  width: 100%;
   background-color: var(--clr-primary);
   color: white;
   padding: 2rem 4rem;
