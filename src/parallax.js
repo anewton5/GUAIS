@@ -1,54 +1,23 @@
 window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('#navbar');
-    const content = document.querySelector('#divider2');
-    const contentPosition = content.getBoundingClientRect().bottom;
-    var contentDiv = document.querySelector('#content');
-
-    if (contentPosition <= 125 || contentDiv.classList.contains('fixed')) {
-        navbar.style.backgroundColor = 'var(--clr-nav)';
-        
+    const parallaxSection = document.querySelector('.parallax');
+    const layer1 = document.querySelector('.layer1');
+    const layer2 = document.querySelector('.layer2');
+    const layer3 = document.querySelector('.layer3');
+  
+    const parallaxSectionTop = parallaxSection.offsetTop;
+    const parallaxSectionHeight = parallaxSection.offsetHeight;
+  
+    var scrollAmount = window.scrollY;
+  
+    if (scrollAmount >= parallaxSectionTop && scrollAmount <= parallaxSectionTop + parallaxSectionHeight) {
+      const localScrollAmount = scrollAmount - parallaxSectionTop;
+  
+      layer1.style.transform = `translate3d(0, ${localScrollAmount * 0.5}px, 0)`;
+      layer2.style.transform = `translate3d(0, ${localScrollAmount * 0.3}px, 0)`;
+      layer3.style.transform = `translate3d(0, ${localScrollAmount * 0.1}px, 0)`;
     } else {
-        navbar.style.backgroundColor = 'transparent';
-    }
-});
-var scrollHeight = 0
-window.addEventListener('scroll', function() {
-    var contentDivs = document.querySelectorAll('#content');
-    var placeholder = document.getElementById('placeholder');
-    var footer = document.getElementById('footer');
-
-    contentDivs.forEach(function(contentDiv, index) {
-        var rect = contentDiv.getBoundingClientRect();
-        var footerRect = footer.getBoundingClientRect();
-        var observer = new ResizeObserver(function() {
-        var computedStyle = window.getComputedStyle(contentDiv);
-        var paddingTop = parseInt(computedStyle.paddingTop);
-        var paddingBottom = parseInt(computedStyle.paddingBottom);
-
-        placeholder.style.height = `${contentDiv.offsetHeight + paddingTop + paddingBottom}px`;
-        });
-        observer.observe(contentDiv);
-        
-        if (rect.top <= 55 && !contentDiv.classList.contains('fixed')) {
-        contentDiv.classList.add('fixed');
-        placeholder.classList.add('placeholder');
-        contentDiv.style.paddingBottom = `150px`;
-        scrollHeight = window.scrollY
-        } else if (window.scrollY < scrollHeight && contentDiv.classList.contains('fixed')) {
-        contentDiv.classList.remove('fixed');
-        placeholder.classList.remove('placeholder');
-        }
-    });
-});
-window.addEventListener('scroll', function(e) {
-    lastKnownScrollPosition = window.scrollY;
-
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-            handleScroll(lastKnownScrollPosition);
-            ticking = false;
-        });
-
-        ticking = true;
+      layer1.style.transform = 'translate3d(0, 0, 0)';
+      layer2.style.transform = 'translate3d(0, 0, 0)';
+      layer3.style.transform = 'translate3d(0, 0, 0)';
     }
 });

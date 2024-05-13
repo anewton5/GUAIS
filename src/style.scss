@@ -104,6 +104,21 @@ main{
   min-height: 400vh;
 }
 
+.parallax {
+  perspective: 1px;
+  height: 300vh;
+  overflow-x: hidden;
+  transform-style: preserve-3d;
+  grid-column: 1 / -1;
+  padding-bottom: 150px;
+}
+
+.parallax-layer {
+  position: relative;
+  width: 100vw;
+  max-height: 100vh;
+}
+
 section{
   grid-column: 2/8;
   padding: 1rem;
@@ -121,13 +136,14 @@ section{
 
 #content1{
   grid-column: 1/-1;
+  width: 100%;
   background-color: var(--clr-primary);
   color: white;
   padding: 2rem 4rem;
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
   z-index: 902;
-  margin-bottom: 150px;
+  transform-origin: top;
 }
 #content{
   grid-column: 1/-1;
@@ -138,6 +154,7 @@ section{
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
   z-index: 900;
+  transform-origin: top;
 }
 
 #cta{
@@ -148,6 +165,7 @@ section{
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
   z-index: 901;
+  transform-origin: top;
 }
 
 blockquote {
