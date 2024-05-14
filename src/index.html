@@ -113,17 +113,19 @@
         <blockquote>
           <p>This is our Society's digital portfolio</p>
         </blockquote>
-        <div id="divider2"></div>
+        
         <div class="parallax">
+          <div id="divider2"></div>
           <div class="parallax-layer layer1" id="content">
-            <h2>Content</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus ipsum dolor sit amet</p><br>
+            <div class="text-section">
+              <h2>Artificial Intelligence</h2>
+              <p>Artificial Intelligence (AI) is a branch of computer science that aims to create intelligent machines.</p>
+              <p>It has become an essential part of the technology industry.</p>
+              <p>Research associated with artificial intelligence is highly technical and specialized.</p>
+            </div>
+            <div class="image-section">
+              <img src="static/images/img-4.jpg" alt="AI Image">
+            </div>
           </div>
           <div id="placeholder"></div>
           <div class="parallax-layer layer2" id="cta">
@@ -134,9 +136,10 @@
             </div>
             <div class="form-section">
               <h2>Subscribe to our newsletter</h2>
-              <form id="subscribe-form">
-                <input type="email" id="email" placeholder="Enter your email" required>
-                <button type="submit">Submit</button>
+              <form id="subscribe-form" action="/submit-email" method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="email">
+                <input type="submit" id="button" value="Subscribe">
               </form>
             </div>
           </div>
@@ -184,6 +187,7 @@
 
       </main>
     </div>
+    <script src="contentAnimations.js"></script>
     <script src="cta.js"></script>
     <script src="/darkmode.js"></script>
     <script type="module" src="/main.ts"></script>
