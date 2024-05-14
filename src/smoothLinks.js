@@ -1,4 +1,4 @@
-const navLinks = document.querySelectorAll('nav ul a, #footer a');
+const navLinks = document.querySelectorAll('nav ul a');
 navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
