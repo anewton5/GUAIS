@@ -93,17 +93,61 @@
         </blockquote>
 
         <section id="projects">
-          <h2>Projects</h2>
-          <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-            <img class="image" src="static/images/img-1.jpg" alt="image1" draggable="false"/>
-            <img class="image" src="static/images/img-2.jpg" alt="image2" draggable="false"/>
-            <img class="image" src="static/images/img-3.jpg" alt="image3" draggable="false"/>
-            <img class="image" src="static/images/img-4.jpg" alt="image4" draggable="false"/>
-            <img class="image" src="static/images/img-5.jpg" alt="image5" draggable="false"/>
-            <img class="image" src="static/images/img-6.jpg" alt="image6" draggable="false"/>
-            <img class="image" src="static/images/img-7.jpg" alt="image7" draggable="false"/>
-          </div>
+          <h2>projects</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed divinus protactus </p>
         </section>
+
+        <blockquote>
+          <h2>Events:</h2>
+        </blockquote>
+
+        <div class="events-wrapper" id="events">
+          <div class="events-container">
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="card">
+              <div class="row">
+                <div class="card-icon">1</div>
+                <div class="card-dsc">
+                  <h3>Event 1</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </label>
+            <input type="radio" name="slide" id="c2">
+            <label for="c2" class="card">
+              <div class="row">
+                <div class="card-icon">2</div>
+                <div class="card-dsc">
+                  <h3>Event 2</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </label>
+            <input type="radio" name="slide" id="c3">
+            <label for="c3" class="card">
+              <div class="row">
+                <div class="card-icon">3</div>
+                <div class="card-dsc">
+                  <h3>Event 3</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </label>
+            <input type="radio" name="slide" id="c4">
+            <label for="c4" class="card">
+              <div class="row">
+                <div class="card-icon">4</div>
+                <div class="card-dsc">
+                  <h3>Event 4</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
 
         <blockquote>
           <p>This is our Society's digital portfolio</p>
@@ -218,7 +262,25 @@
 
       </main>
     </div>
-    <script src="imageTrack.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('a').on('click', function(event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+
+            var hash = this.hash;
+
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+        
+              window.location.hash = hash;
+            });
+          } 
+        });
+      });
+    </script>
     <script src="contentAnimations.js"></script>
     <script src="cta.js"></script>
     <script src="/darkmode.js"></script>

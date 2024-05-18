@@ -142,11 +142,6 @@ section{
   overflow: hidden;
 }
 
-#projects::before {
-  content: "";
-  display: block;
-  padding-top: 56vmin; // This should be the same as the height of the images
-}
 #image-track {
   display: flex;
   gap: 4vmin;
@@ -161,13 +156,6 @@ section{
   object-fit: cover;
   margin: 0 auto;
   object-position: 100% 50%;
-}
-#events {
-  grid-column: 2/8;
-  padding: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  background: var(--clr-bg-section);
 }
 
 @keyframes fadeInUp {
@@ -416,6 +404,96 @@ blockquote {
   padding: 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
+} 
+
+.events-wrapper{
+  height: 100%;
+  grid-column: 3/11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.events-container{
+  height: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: start;
+}
+
+.card{
+  width: 80px;
+  border-radius: 0.75rem;
+  background-size: cover ;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 0 20px;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.6s cubic-bezier(.28, -0.03, 0, .99);
+  box-shadow: 0 10px 30px -5px rgba( 0, 0, 0, 0.8);
+}
+
+.card > .row {
+  color: white;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card > .row > .card-icon{
+  background: #223;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.card > .row > .card-dsc {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  width: 520px;
+  height: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition : .3s;
+  transition: all .3s ease;
+}
+
+.card-dsc p {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 45px;
+}
+.events-container input{
+  display: none;
+}
+
+.events-container input:checked + label{
+  width: 600px;
+}
+
+.events-container input:checked + label .card-dsc{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.card[for = "c1"]{
+  background-image: url('static/images/img-1.jpg');
+}
+.card[for = "c2"]{
+  background-image: url('static/images/img-6.jpg');
+}
+.card[for = "c3"]{
+  background-image: url('static/images/img-3.jpg');
+}
+.card[for = "c4"]{
+  background-image: url('static/images/img-8.jpg');
 }
 
 #torusText{
