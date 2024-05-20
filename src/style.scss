@@ -39,7 +39,7 @@
   --clr-l1:#14022f ;
   --clr-l2:#250555;
   --clr-l3: #330676;
-  --clr-glass: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  --clr-glass: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
 }
 
 .darkmode-toggle {
@@ -119,6 +119,7 @@ main{
   overflow-x: hidden;
   transform-style: preserve-3d;
   grid-column: 1 / -1;
+  margin-top: 15rem;
 }
 
 .parallax-layer {
@@ -396,10 +397,11 @@ label[for="email"] {
 
 blockquote {
   background: none;
-  grid-column: 2/8;
+  grid-column: 3/8;
   padding: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 4.5rem;
+  font-weight: 600;
+  color: var(--clr-secondary);
 } 
 
 .bg-container2{
@@ -425,6 +427,7 @@ blockquote {
 .projects-container{
   display: grid;
   row-gap: 2rem;
+  height: 100%;
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
@@ -538,21 +541,20 @@ blockquote {
   
 }
 
-
-
 .bg-container1 {
   grid-column: 3 / 11;
   width: 100%;
   height: 500px;
   padding:1rem;
   opacity: 0;
-  transform: translateX(100%);
+  padding: 3rem;
+  transform: translateX(60%);
 }
 
 @keyframes fadeInFromRight{
   0% {
     opacity: 0;
-    transform: translatex(100%);
+    transform: translatex(60%);
   }
   100% {
     opacity: 1;
@@ -562,19 +564,6 @@ blockquote {
 
 .bg-container1.animate {
   animation: fadeInFromRight 1s ease-out forwards;
-}
-
-.bg-container1 h2{
-  margin: 0;
-  padding: 0 4rem;
-  font-size: 2rem;
-  margin-bottom:40px;
-  margin-top: 40px;
-}
-
-.bg-container1 p{
-  padding: 0 4rem;
-  font-size: 1.5rem;
 }
 
 .bg-container{
@@ -610,14 +599,14 @@ blockquote {
 
 .bg-container {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(-60%);
   padding: 1rem;
 }
 
 @keyframes fadeInFromLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-60%);
   }
   100% {
     opacity: 1;
@@ -725,8 +714,8 @@ blockquote {
 }
 
 main > section, main > blockquote {
-  margin-top: 50px; 
-  margin-bottom: 50px;
+  margin-top: 100px; 
+  margin-bottom: 10px;
 }
 
 #events-quote{
@@ -833,8 +822,7 @@ nav a:hover {
   left: 0;
   justify-content: center;
   align-items: center;
-  font-size: 96px;
-  color: white;
+  color: #f5f0ff;
   opacity: 0.8;
   text-shadow: 1px 1px rgba(0,0,0,0.1);
 }
@@ -900,7 +888,7 @@ nav a:hover {
   margin-bottom: 20px; 
   font-size: 25px;
   text-align: center;
-  color: white;
+  color: #f5f0ff;
 }
 .load-complete {
   opacity: 0; 
@@ -912,9 +900,9 @@ nav a:hover {
   height: auto;
 }
 #loading-screen h2{
-  font-size: 100px;
+  font-size: 250px;
   text-align: center;
-  color: white;
+  color: #f5f0ff;
   margin-bottom: 5px;
   font-style: italic;
   font-weight: 800;

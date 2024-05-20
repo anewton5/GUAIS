@@ -6,7 +6,7 @@ const projectsObserver = new IntersectionObserver(entries => {
       entry.target.classList.remove('animate');
     }
   });
-}, { threshold: 0.04 });
+}, { threshold: 0.05 });
 
 document.querySelectorAll('.bg-container1').forEach(el => {
   projectsObserver.observe(el);
