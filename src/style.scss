@@ -11,6 +11,7 @@
   --color4: 200, 50, 50;
   --color5: 180, 180, 50;
   --color-interactive: 140, 100, 255;
+  --clr-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   --circle-size: 80%;
   --blending: hard-light;
   --clr-primary: #9769EF;
@@ -38,6 +39,7 @@
   --clr-l1:#14022f ;
   --clr-l2:#250555;
   --clr-l3: #330676;
+  --clr-glass: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
 }
 
 .darkmode-toggle {
@@ -400,6 +402,181 @@ blockquote {
   line-height: 1.5;
 } 
 
+.bg-container2{
+  grid-column: 3 / 11;
+  width: 100%;
+  height: 500px;
+  padding:1rem;
+}
+
+.bg-container2 h2{
+  margin: 0;
+  padding: 0 4rem;
+  font-size: 2rem;
+  margin-bottom:40px;
+  margin-top: 40px;
+}
+
+.bg-container2 p{
+  padding: 0 4rem;
+  font-size: 1.5rem;
+}
+
+.projects-container{
+  display: grid;
+  row-gap: 2rem;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card-article{
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img{
+  width: 308px;
+  height: 320px;
+  border-radius: 20px;
+}
+
+.card-data{
+  width: 225px;
+  background-color: var(--clr-nav);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 10px 30px -5px rgba( 0, 0, 0, 0.8);
+  border-radius: 18px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  bottom: -9rem;
+  opacity: 0;
+  transition: opactiy 1s 1s;
+}
+
+.card-description{
+  display: block;
+  font-size: 0.75rem;
+}
+
+.card-title{
+  font-size: 1.25rem;
+  color: var(--clr-txt);
+  margin-bottom: 10px;
+}
+
+.card-button{
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--clr-accent);
+}
+
+.card-button:hover{
+  color: var(--clr-hover);
+}
+
+.card-article:hover .card-data{
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.card-article:hover{
+  animation: remove-overflow 2s forwards;
+}
+
+.card-article:not(:hover) {
+  animation: show-overflow  2s forwards;
+}
+
+.card-article:not(:hover) .card-data{
+  animation: remove-data 2s forwards;
+}
+
+@keyframes show-data {
+  50%{
+    transform: translateY(-9.75rem);
+  }
+  100%{
+    transform: translateY(-9rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to{
+    overflow: initial;
+  }
+}
+
+@keyframes show-overflow {
+  0%{
+    overflow: initial;
+    pointer-events: none;
+  }
+  50%{
+    overflow: hidden;
+  }
+}
+
+@keyframes remove-data {
+  0%{
+    transform: translateY(-7rem);
+  }
+  50%{
+    transform: translateY(-10rem);
+  }
+  100%{
+    transform: translateY(.5rem);
+  }
+}
+
+@media screen and (max-width: 340px){
+  .projects-container{
+    grid-template-columns: 1fr;
+  }
+  
+}
+
+
+
+.bg-container1 {
+  grid-column: 3 / 11;
+  width: 100%;
+  height: 500px;
+  padding:1rem;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+@keyframes fadeInFromRight{
+  0% {
+    opacity: 0;
+    transform: translatex(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bg-container1.animate {
+  animation: fadeInFromRight 1s ease-out forwards;
+}
+
+.bg-container1 h2{
+  margin: 0;
+  padding: 0 4rem;
+  font-size: 2rem;
+  margin-bottom:40px;
+  margin-top: 40px;
+}
+
+.bg-container1 p{
+  padding: 0 4rem;
+  font-size: 1.5rem;
+}
+
 .bg-container{
   grid-column: 3 / 11;
   width: 100%;
@@ -407,7 +584,7 @@ blockquote {
 }
 
 .glass{
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  background: var(--clr-glass);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -437,10 +614,6 @@ blockquote {
   padding: 1rem;
 }
 
-.bg-container h2{
-  margin: 0;
-}
-
 @keyframes fadeInFromLeft {
   0% {
     opacity: 0;
@@ -454,6 +627,12 @@ blockquote {
 
 .bg-container.animate {
   animation: fadeInFromLeft 1s ease-out forwards;
+}
+
+.bg-container h2{
+  margin: 0;
+  padding: 0 4rem;
+  font-size: 2rem;
 }
 
 .card{
@@ -597,7 +776,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--clr-hover);
+  color: #5a089c;
 }
 
 #logo {

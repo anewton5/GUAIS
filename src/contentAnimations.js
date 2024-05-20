@@ -1,6 +1,5 @@
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    console.log(`Entry for ${entry.target.id}: isIntersecting = ${entry.isIntersecting}`);
     if (entry.isIntersecting) {
       entry.target.classList.add('animate');
     } else {

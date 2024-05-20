@@ -1,4 +1,4 @@
-const eventsObserver = new IntersectionObserver(entries => {
+const projectsObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('animate');
@@ -6,8 +6,8 @@ const eventsObserver = new IntersectionObserver(entries => {
       entry.target.classList.remove('animate');
     }
   });
-}, { threshold: 0.05 });
+}, { threshold: 0.04 });
 
-document.querySelectorAll('.bg-container').forEach(el => {
-  eventsObserver.observe(el);
+document.querySelectorAll('.bg-container1').forEach(el => {
+  projectsObserver.observe(el);
 });
