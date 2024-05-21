@@ -429,7 +429,12 @@ blockquote {
   row-gap: 2rem;
   height: 100%;
   place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-content: center;
+
+  @media (max-width: 1050px) {
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  }
 }
 
 .card-article{
@@ -438,13 +443,14 @@ blockquote {
 }
 
 .card-img{
-  width: 308px;
-  height: 320px;
+  width: 328px;
+  height: 220px;
+  object-fit: cover;
   border-radius: 20px;
 }
 
 .card-data{
-  width: 225px;
+  width: 245px;
   background-color: var(--clr-nav);
   padding: 1.25rem 1.5rem;
   box-shadow: 0 10px 30px -5px rgba( 0, 0, 0, 0.8);
@@ -455,8 +461,22 @@ blockquote {
   margin-inline: auto;
   bottom: -9rem;
   opacity: 0;
-  transition: opactiy 1s 1s;
+  z-index: 2;
+
+  @media (max-width: 989px) {
+    position: relative;
+    bottom: 8rem;
+    opacity: 1;
+    transition: none;
+    z-index: 3;
+  }
 }
+
+.no-animation {
+  animation: none !important;
+  max-height: 225px;
+}
+
 
 .card-description{
   display: block;
@@ -549,6 +569,11 @@ blockquote {
   opacity: 0;
   padding: 3rem;
   transform: translateX(60%);
+
+  @media (max-width: 989px) {
+    height: 1000px;
+    padding: 0.75rem;
+  }
 }
 
 @keyframes fadeInFromRight{
@@ -595,6 +620,11 @@ blockquote {
   display: flex;
   flex-wrap: nowrap;
   justify-content: start;
+  
+  @media (max-width: 990px) {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
 }
 
 .bg-container {
@@ -660,7 +690,7 @@ blockquote {
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
-  width: 520px;
+  width: 300px;
   height: 80px;
   opacity: 0;
   transform: translateY(30px);
@@ -671,14 +701,17 @@ blockquote {
 .card-dsc p {
   color: white;
   margin-top: 0;
-  margin-bottom: 45px;
+}
+
+.card-dsc h3 {
+  margin: 0;
 }
 .events-container input{
   display: none;
 }
 
 .events-container input:checked + label{
-  width: 600px;
+  width: 400px;
 }
 
 .events-container input:checked + label .card-dsc{
