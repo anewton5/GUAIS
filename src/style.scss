@@ -26,6 +26,7 @@
   --clr-l2:#9769EF;
   --clr-l3: #b4a4f1;
   --ff-txt: 'Montserrat', sans-serif;
+  --clr-hover-dark:#5a089c;
 }
 
 .darkmode {
@@ -33,7 +34,8 @@
   --clr-secondary:  #250555;
   --clr-accent: #9769EF;
   --clr-bg-section: #160e1fc5;
-  --clr-hover:#ff6347;
+  --clr-hover:#5a089c;
+  --clr-hover-dark:#ff6347;
   --clr-nav: #14022f;
   --clr-txt: #f5f0ff;
   --clr-l1:#14022f ;
@@ -797,8 +799,12 @@ nav a {
   transition: color 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-nav a:hover {
-  color: #5a089c;
+nav a#nav-link.hover-dark:hover {
+  color: var(--clr-hover-dark);
+}
+
+nav a#nav-link.hover-light:hover {
+  color: var(--clr-hover);
 }
 
 #logo {
