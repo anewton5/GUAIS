@@ -3,7 +3,7 @@ import validator from 'validator';
 import mongoose from 'mongoose';
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 mongoose.connect('mongodb+srv://amosenewton:QocE7Br0E7ElcoTc@guais.yoklg14.mongodb.net/?retryWrites=true&w=majority&appName=GUAIS', { useNewUrlParser: true, useUnifiedTopology: true });
 
