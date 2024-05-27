@@ -16,15 +16,15 @@
   --blending: hard-light;
   --clr-primary: #9769EF;
   --clr-secondary: #f5f0ff;
-  --clr-accent: #b4a4f1;
+  --clr-accent: #262626;
   --clr-bg-section: #c7bbe6c5;
   --clr-light: #e0d6f3;
   --clr-txt: #262626;
   --clr-nav: #9769EF;
   --clr-hover: #5a089c;
-  --clr-l1:#8610e6;
-  --clr-l2:#9769EF;
-  --clr-l3: #b4a4f1;
+  --clr-l1:#f5f0ff;
+  --clr-l2:#b4a4f1;
+  --clr-l3: #f5f0ff;
   --ff-txt: 'Montserrat', sans-serif;
   --clr-hover-dark:#5a089c;
 }
@@ -195,7 +195,7 @@ section{
   grid-column: 1/-1;
   width: 100%;
   background-color: var(--clr-l1);
-  color: white;
+  color: var(--clr-txt);
   padding: 2rem 4rem;
   font-size: 1.25rem;
   z-index: 900;
@@ -236,7 +236,7 @@ section{
 #cta{
   grid-column: 1/-1;
   background-color: var(--clr-l2);
-  color: #f5f0ff;
+  color: var(--clr-txt);
   padding: 2rem 4rem;
   font-size: 1.25rem;
   z-index: 901;
@@ -343,7 +343,7 @@ section{
     transition: color 0.45s
   }
   i:hover{
-    color: var(--clr-hover);
+    color: var(--clr-hover-dark);
   }
 }
 
@@ -353,7 +353,12 @@ section{
 
 #subscribe-form {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+}
+
+#input-section {
+  display: flex;
+  flex-direction: row;
 }
 
 #subscribe-form #email {
@@ -379,7 +384,7 @@ section{
   border: none;
   cursor: pointer;
   background-size:  auto 200%;
-  background-image: linear-gradient(to bottom, #6359e5 50%, var(--clr-hover) 50%);
+  background-image: linear-gradient(to bottom, #6359e5 50%, var(--clr-hover-dark) 50%);
   transition: all 0.4s ease;
   background-position: center top;
 }
@@ -487,18 +492,18 @@ blockquote {
 
 .card-title{
   font-size: 1.25rem;
-  color: var(--clr-txt);
+  color: var(--clr-accent);
   margin-bottom: 10px;
 }
 
 .card-button{
   text-decoration: none;
   font-size: 1rem;
-  color: var(--clr-accent);
+  color: #f5f0ff;
 }
 
 .card-button:hover{
-  color: var(--clr-hover);
+  color: var(--clr-hover-dark);
 }
 
 .card-article:hover .card-data{
@@ -869,8 +874,8 @@ nav a#nav-link.hover-light:hover {
 .spinner {
   display: block;
   animation: rotate 3.75s linear;
-  height: 120px;
-  width: 120px;
+  height: 305px;
+  width: 305px;
   position: relative;
   transition: opacity 0.3s ease-out;
 }
@@ -1176,5 +1181,5 @@ nav a#nav-link.hover-light:hover {
   transition: color 0.45s
 }
 .footer-links ul li a:hover {
-  color: var(--clr-hover);
+  color: var(--clr-hover-dark);
 }
