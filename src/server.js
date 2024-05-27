@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(process.cwd()));
 
 app.post('/submit-email', async (req, res) => {
-  const email = req.body.email.toLowerCase(); // Convert email to lowercase
+  const email = req.body.email.toLowerCase();
 
   // Validate the email address
   if (!validator.isEmail(email)) {
