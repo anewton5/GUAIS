@@ -338,7 +338,12 @@ section {
 
 #subscribe-form {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+}
+
+#input-section {
+  display: flex;
+  flex-direction: row;
 }
 
 #subscribe-form #email {
